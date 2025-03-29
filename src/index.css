@@ -1,10 +1,11 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 220 33% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -13,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 240 63% 56%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -35,19 +36,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -99,3 +93,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+.feature-card {
+  @apply bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow duration-300;
+}
+
+.feature-number {
+  @apply w-8 h-8 flex items-center justify-center rounded-full bg-recursion-gray text-black font-medium text-sm;
+}
+
+.recursion-button {
+  @apply bg-recursion-blue text-white font-medium px-4 py-2 rounded-md hover:bg-recursion-dark-blue transition-colors duration-200;
+}
+
