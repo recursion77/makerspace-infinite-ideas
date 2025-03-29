@@ -16,12 +16,659 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@recursion_ai" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="root">
+      <header class="navbar">
+        <div class="navbar-logo">
+          <div class="logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v14M5 12h14"></path>
+            </svg>
+          </div>
+          <span class="logo-text">recursion</span>
+        </div>
+        <nav class="navbar-links">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#pricing" class="nav-link">Pricing</a>
+        </nav>
+        <button class="button primary-button">Install Extension</button>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="badge">Available for Chrome, Firefox, and Edge</div>
+          
+          <h1 class="hero-title">
+            Simplify Complex Text with<br /> AI-Powered Tools
+          </h1>
+          
+          <p class="hero-description">
+            Select text on any webpage to summarize, simplify, generate quizzes, 
+            and chat about the content – all in one powerful browser extension.
+          </p>
+          
+          <div class="hero-buttons">
+            <button class="button primary-button">
+              Install Free Extension 
+              <svg xmlns="http://www.w3.org/2000/svg" class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
+            <button class="button secondary-button">
+              Learn More
+            </button>
+          </div>
+          
+          <!-- Browser mockup -->
+          <div class="browser-mockup">
+            <!-- Browser chrome/toolbar -->
+            <div class="browser-toolbar">
+              <!-- Traffic lights -->
+              <div class="traffic-lights">
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+                <div class="light green"></div>
+              </div>
+              
+              <!-- Navigation buttons -->
+              <div class="nav-buttons">
+                <button class="nav-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 19l-7-7 7-7"></path>
+                  </svg>
+                </button>
+                <button class="nav-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </button>
+                <button class="nav-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                  </svg>
+                </button>
+              </div>
+              
+              <!-- URL bar -->
+              <div class="url-bar">
+                <svg xmlns="http://www.w3.org/2000/svg" class="url-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
+                </svg>
+                <span>en.wikipedia.org/wiki/Lorem_ipsum</span>
+              </div>
+              
+              <!-- Browser actions -->
+              <div class="browser-actions">
+                <button class="action-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                  </svg>
+                </button>
+                <button class="action-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Browser content -->
+            <div class="browser-content">
+              <div class="content-flex">
+                <div class="content-main">
+                  <!-- Page title -->
+                  <div class="page-title">
+                    <div class="page-icon"></div>
+                    <div class="page-title-text"></div>
+                  </div>
+                  
+                  <!-- Wikipedia-style header -->
+                  <div class="wiki-header">From Wikipedia, the free encyclopedia</div>
+                  
+                  <!-- Page content -->
+                  <div class="page-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line shorter"></div>
+                  </div>
+                  
+                  <!-- Lorem ipsum text with highlight - this is what gets selected -->
+                  <div class="text-selection-container">
+                    <div class="text-highlight">
+                      <p id="selectable-text" class="selectable-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis eget urna ultricies 
+                        magna in tincidunt ultrices, nisi nunc malesuada erat, vel dictum nisl elit ac purus. Praesent 
+                        vel ut metus.
+                      </p>
+                    </div>
+                    <div class="more-lines">
+                      <div class="line"></div>
+                      <div class="line"></div>
+                      <div class="line shorter"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Cursor element -->
+                <div id="cursor" class="text-cursor"></div>
+                
+                <!-- Recursion popup - only shows after selection -->
+                <div id="recursion-popup" class="recursion-popup">
+                  <div class="popup-header">
+                    <div class="popup-logo">
+                      <span>R</span>
+                    </div>
+                    <span class="popup-title">Recursion</span>
+                    <span class="popup-badge">Free</span>
+                  </div>
+                  
+                  <div class="popup-content">
+                    <p class="popup-description">
+                      Select text on any webpage to use recursion's features
+                    </p>
+                    
+                    <div class="selection-success">
+                      <div class="success-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                      <span class="success-text">Text Selected</span>
+                    </div>
+                    
+                    <div class="feature-options">
+                      <div class="feature-option">
+                        <input type="radio" checked class="feature-radio" />
+                        <span class="feature-name">Summarize</span>
+                      </div>
+                      
+                      <div class="feature-option">
+                        <input type="radio" class="feature-radio" />
+                        <span class="feature-name">Simplify</span>
+                      </div>
+                      
+                      <div class="feature-option">
+                        <input type="radio" class="feature-radio" />
+                        <span class="feature-name">Quiz Me</span>
+                      </div>
+                      
+                      <div class="feature-option">
+                        <input type="radio" class="feature-radio" />
+                        <span class="feature-name">Chat</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="hero-steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <p class="step-text">Select Text</p>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <p class="step-text">Open Extension</p>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <p class="step-text">Choose Action</p>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <p class="step-text">Get Results</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="features" class="features">
+          <div class="section-header">
+            <div class="badge">Features</div>
+            <h2 class="section-title">Powerful Tools for Any Text</h2>
+            <p class="section-description">
+              Our browser extension provides a suite of AI-powered tools to help you process, understand, and
+              interact with text content more effectively.
+            </p>
+          </div>
+          
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon-container">
+                <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </svg>
+              </div>
+              <h3 class="feature-title">Select Text to Analyze</h3>
+              <p class="feature-description">
+                Highlight any text on a webpage to instantly access all recursion's powerful features.
+              </p>
+              <div class="usage-count">1/3</div>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon-container">
+                <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                </svg>
+              </div>
+              <h3 class="feature-title">Paste from Clipboard</h3>
+              <p class="feature-description">
+                Quickly process text from your clipboard without the need to navigate to another page.
+              </p>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon-container">
+                <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22c1.5 0 2.941-.152 4.237-.437 1.296-.284 2.377-.702 3.244-1.252.866-.55 1.519-1.196 1.957-1.937.439-.741.658-1.524.658-2.349s-.219-1.608-.658-2.349c-.438-.741-1.09-1.387-1.957-1.937-.867-.55-1.948-.968-3.244-1.252C14.941 10.152 13.5 10 12 10c-1.5 0-2.941.152-4.237.437-1.296.284-2.377.702-3.244 1.252-.866.55-1.519 1.196-1.957 1.937C2.123 14.367 1.904 15.15 1.904 15.975s.219 1.608.658 2.349c.438.741 1.09 1.387 1.957 1.937.867.55 1.948.968 3.244 1.252C9.059 21.848 10.5 22 12 22z"></path>
+                  <path d="M12 6a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
+                </svg>
+              </div>
+              <h3 class="feature-title">Generate Quizzes</h3>
+              <p class="feature-description">
+                Create multiple-choice questions from any text to test knowledge and understanding.
+              </p>
+              <div class="usage-count">0/3</div>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon-container">
+                <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" x2="8" y1="13" y2="13"></line>
+                  <line x1="16" x2="8" y1="17" y2="17"></line>
+                  <line x1="10" x2="8" y1="9" y2="9"></line>
+                </svg>
+              </div>
+              <h3 class="feature-title">Simplify Text</h3>
+              <p class="feature-description">
+                Convert complex paragraphs into easy-to-read bullet points for faster comprehension.
+              </p>
+              <div class="usage-count">1/3</div>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon-container">
+                <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <h3 class="feature-title">Chat About Content</h3>
+              <p class="feature-description">
+                Ask questions and get instant answers about the text you're reading.
+              </p>
+              <div class="usage-count">4/5</div>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon-container">
+                <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                </svg>
+              </div>
+              <h3 class="feature-title">Premium Features</h3>
+              <p class="feature-description">
+                Upgrade for unlimited access to advanced features and higher usage limits.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+          <div class="section-header">
+            <div class="badge">How It Works</div>
+            <h2 class="section-title">Simple to Use, Powerful Results</h2>
+            <p class="section-description">
+              Our extension seamlessly integrates into your browsing experience with a clean, intuitive interface.
+            </p>
+          </div>
+          
+          <div class="how-it-works-content">
+            <div class="steps-container">
+              <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3 class="step-title">Select Text</h3>
+                  <p class="step-description">
+                    Highlight any text on a webpage that you want to process.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3 class="step-title">Open Extension</h3>
+                  <p class="step-description">
+                    Click on the recursion icon in your browser toolbar.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3 class="step-title">Choose a Tool</h3>
+                  <p class="step-description">
+                    Select from multiple text processing options based on your needs.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h3 class="step-title">Get Results</h3>
+                  <p class="step-description">
+                    Instantly receive AI-processed results that you can copy, save, or share.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="extension-preview">
+              <div class="extension-interface">
+                <div class="extension-header">
+                  <div class="extension-logo">
+                    <span>r</span>
+                  </div>
+                  <span class="extension-title">recursion</span>
+                  <span class="extension-badge">Free</span>
+                </div>
+                
+                <div class="extension-body">
+                  <p class="extension-prompt">
+                    Select text on any webpage to use recursion's features
+                  </p>
+                  <div class="extension-icon-wrapper">
+                    <div class="extension-icon">
+                      <svg viewBox="0 0 24 24" class="selection-icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z" 
+                              stroke="currentColor" stroke-width="2" />
+                        <path d="M12 14.5C13.3807 14.5 14.5 13.3807 14.5 12C14.5 10.6193 13.3807 9.5 12 9.5C10.6193 9.5 9.5 10.6193 9.5 12C9.5 13.3807 10.6193 14.5 12 14.5Z" 
+                              stroke="currentColor" stroke-width="2" />
+                      </svg>
+                    </div>
+                  </div>
+                  <p class="select-prompt">
+                    Select text on a page to begin
+                  </p>
+                </div>
+                
+                <div class="extension-options">
+                  <div class="extension-option">
+                    <svg class="option-icon active-option" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2" />
+                      <path d="M9 12H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <span class="option-text">Paste Text from Clipboard</span>
+                  </div>
+                  
+                  <div class="extension-option">
+                    <svg class="option-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="2" />
+                      <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                      <path d="M16 12H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <div class="option-details">
+                      <span class="option-title">Generate Quiz</span>
+                      <span class="option-subtitle">Create multiple choice questions</span>
+                    </div>
+                    <span class="option-count">0/3</span>
+                  </div>
+                  
+                  <div class="extension-option">
+                    <svg class="option-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2" />
+                      <path d="M8 9H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                      <path d="M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                      <path d="M8 15H13" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <div class="option-details">
+                      <span class="option-title">Simplify Text</span>
+                      <span class="option-subtitle">Convert to easy-to-read bullet points</span>
+                    </div>
+                    <span class="option-count">1/3</span>
+                  </div>
+                  
+                  <div class="extension-option">
+                    <svg class="option-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 8H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                      <path d="M7 12H13" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                      <path d="M3 18L6 15H18C19.1046 15 20 14.1046 20 13V6C20 4.89543 19.1046 4 18 4H6C4.89543 4 4 4.89543 4 6V13C4 14.1046 4.89543 15 6 15H6.5" 
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <div class="option-details">
+                      <span class="option-title">Chat About Text</span>
+                      <span class="option-subtitle">Ask questions about the content</span>
+                    </div>
+                    <span class="option-count">4/5</span>
+                  </div>
+                </div>
+                
+                <div class="extension-footer">
+                  <p class="upgrade-prompt">Need more? <a href="#pricing" class="upgrade-link">Upgrade to Premium</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="pricing" class="pricing">
+          <div class="section-header">
+            <div class="badge">Pricing</div>
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <p class="section-description">
+              Start for free with our basic plan, or upgrade to Premium for unlimited access and advanced features.
+            </p>
+          </div>
+          
+          <div class="pricing-options">
+            <div class="pricing-card">
+              <h3 class="pricing-tier">Free</h3>
+              <p class="pricing-description">Get started with basic features</p>
+              
+              <div class="pricing-amount">
+                <span class="price">$0</span>
+                <span class="price-period">/month</span>
+              </div>
+              
+              <button class="button outline-button">Install Now</button>
+              
+              <ul class="pricing-features">
+                <li class="feature-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="feature-text">Limited usage of all features</span>
+                </li>
+                <li class="feature-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="feature-text">Generate up to 3 quizzes per day</span>
+                </li>
+                <li class="feature-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="feature-text">Simplify up to 3 texts per day</span>
+                </li>
+                <li class="feature-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="feature-text">Up to 5 chat messages per text</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="pricing-card popular">
+              <div class="popular-badge">MOST POPULAR</div>
+              <h3 class="pricing-tier">Premium</h3>
+              <p class="pricing-description">Unlock unlimited access</p>
+              
+              <div class="pricing-amount">
+                <span class="price">$5.99</span>
+                <span class="price-period">/month</span>
+              </div>
+              
+              <button class="button primary-button">Upgrade to Premium</button>
+              
+              <ul class="pricing-features">
+                <li class="feature-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="feature-text">Unlimited usage of all features</span>
+                </li>
+                <li class="feature-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="feature-text">Generate unlimited quizzes</span>
+                </li>
+                <li class="feature-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="feature-text">Simplify unlimited texts</span>
+                </li>
+                <li class="feature-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="feature-text">Unlimited chat messages</span>
+                </li>
+                <li class="feature-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="feature-text">Advanced summarization options</span>
+                </li>
+                <li class="feature-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="feature-text">Priority customer support</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta">
+          <div class="cta-container">
+            <h2 class="cta-title">
+              Ready to Simplify Your Reading?
+            </h2>
+            <p class="cta-description">
+              Install recursion now and transform how you interact with text online. Free to start, no credit card required.
+            </p>
+            <div class="cta-buttons">
+              <button class="button cta-primary-button">
+                Install Free Extension 
+                <svg xmlns="http://www.w3.org/2000/svg" class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </button>
+              <button class="button cta-outline-button">
+                Read Documentation
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-main">
+            <div class="footer-branding">
+              <div class="footer-logo">
+                <div class="logo-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 5v14M5 12h14"></path>
+                  </svg>
+                </div>
+                <span class="logo-text">recursion</span>
+              </div>
+              <p class="footer-tagline">
+                Simplifying how you interact with text online through AI-powered tools.
+              </p>
+            </div>
+            
+            <div class="footer-links">
+              <div class="footer-link-group">
+                <h3 class="link-group-title">Product</h3>
+                <ul class="footer-link-list">
+                  <li><a href="#features" class="footer-link">Features</a></li>
+                  <li><a href="#pricing" class="footer-link">Pricing</a></li>
+                  <li><a href="#" class="footer-link">Changelog</a></li>
+                  <li><a href="#" class="footer-link">Roadmap</a></li>
+                </ul>
+              </div>
+              
+              <div class="footer-link-group">
+                <h3 class="link-group-title">Resources</h3>
+                <ul class="footer-link-list">
+                  <li><a href="#" class="footer-link">Documentation</a></li>
+                  <li><a href="#" class="footer-link">Blog</a></li>
+                  <li><a href="#" class="footer-link">Community</a></li>
+                  <li><a href="#" class="footer-link">Support</a></li>
+                </ul>
+              </div>
+              
+              <div class="footer-link-group">
+                <h3 class="link-group-title">Company</h3>
+                <ul class="footer-link-list">
+                  <li><a href="#" class="footer-link">About</a></li>
+                  <li><a href="#" class="footer-link">Privacy</a></li>
+                  <li><a href="#" class="footer-link">Terms</a></li>
+                  <li><a href="#" class="footer-link">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="footer-bottom">
+            <p class="copyright">© 2023 recursion. All rights reserved.</p>
+            <div class="social-links">
+              <a href="#" aria-label="Twitter" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                </svg>
+              </a>
+              <a href="#" aria-label="GitHub" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                  <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                </svg>
+              </a>
+              <a href="#" aria-label="LinkedIn" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect width="4" height="12" x="2" y="9"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
