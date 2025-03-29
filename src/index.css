@@ -106,3 +106,13 @@
   @apply bg-recursion-blue text-white font-medium px-4 py-2 rounded-md hover:bg-recursion-dark-blue transition-colors duration-200;
 }
 
+/* Animation for cursor blinking */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Add cursor animation */
+.cursor-blink {
+  animation: blink-cursor 1s infinite;
+}

@@ -1,8 +1,67 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
+  const [showRecursionPopup, setShowRecursionPopup] = useState(false);
+  const textRef = useRef<HTMLParagraphElement>(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    // Animation sequence
+    const startAnimation = async () => {
+      if (!textRef.current || !cursorRef.current) return;
+      
+      const paragraph = textRef.current;
+      const cursor = cursorRef.current;
+      
+      // Position cursor at the start of the paragraph
+      const rect = paragraph.getBoundingClientRect();
+      cursor.style.opacity = '1';
+      cursor.style.left = `${rect.left}px`;
+      cursor.style.top = `${rect.top + 2}px`;
+      
+      // Wait before starting selection
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Animate cursor moving to the end of the paragraph
+      cursor.style.transition = 'left 2s linear, top 0.5s ease-out';
+      cursor.style.left = `${rect.left + paragraph.offsetWidth * 0.93}px`;
+      
+      // Create and animate a selection background
+      const selection = document.createElement('div');
+      selection.className = 'absolute bg-blue-200 opacity-50 z-0';
+      selection.style.left = `${rect.left}px`;
+      selection.style.top = `${rect.top}px`;
+      selection.style.height = `${paragraph.offsetHeight}px`;
+      selection.style.width = '0';
+      paragraph.parentElement?.appendChild(selection);
+      
+      // Animate the selection width
+      selection.style.transition = 'width 2s linear';
+      selection.style.width = `${paragraph.offsetWidth * 0.93}px`;
+      
+      // Show the popup after selection completes
+      setTimeout(() => {
+        setShowRecursionPopup(true);
+        // Remove the cursor after selection is done
+        setTimeout(() => {
+          cursor.style.opacity = '0';
+        }, 500);
+      }, 2000);
+    };
+    
+    // Start animation after a short delay
+    const timer = setTimeout(() => {
+      startAnimation();
+    }, 2000);
+    
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+  
   return (
     <section className="pt-16 pb-12 px-4 sm:px-6 lg:px-8 text-center">
       <div className="inline-block px-3 py-1 bg-blue-100 text-sm text-blue-800 rounded-full mb-6">
@@ -27,8 +86,8 @@ const Hero = () => {
         </Button>
       </div>
       
-      {/* Updated browser mockup */}
-      <div className="max-w-5xl mx-auto rounded-xl shadow-lg overflow-hidden bg-gray-100">
+      {/* Browser mockup */}
+      <div className="max-w-5xl mx-auto rounded-xl shadow-lg overflow-hidden bg-gray-100 relative">
         {/* Browser chrome/toolbar */}
         <div className="bg-[#2D2D2D] text-gray-300 p-2 flex items-center space-x-2">
           {/* Traffic lights */}
@@ -101,10 +160,10 @@ const Hero = () => {
                 <div className="h-3 bg-gray-200 rounded w-11/12"></div>
               </div>
               
-              {/* Lorem ipsum text with highlight */}
+              {/* Lorem ipsum text with highlight - this is what gets selected */}
               <div className="mb-4 relative">
                 <div className="bg-blue-100 p-4 rounded mb-3">
-                  <p className="text-gray-700 text-sm mb-2 text-left">
+                  <p ref={textRef} className="text-gray-700 text-sm mb-2 text-left relative z-10">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis eget urna ultricies 
                     magna in tincidunt ultrices, nisi nunc malesuada erat, vel dictum nisl elit ac purus. Praesent 
                     vel ut metus.
@@ -118,53 +177,65 @@ const Hero = () => {
               </div>
             </div>
             
-            {/* Recursion popup */}
-            <div className="w-72 bg-white shadow-xl rounded-lg border overflow-hidden">
-              <div className="p-4 bg-white border-b flex items-center space-x-2">
-                <div className="w-6 h-6 bg-recursion-blue rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-xs">R</span>
-                </div>
-                <span className="font-medium text-gray-900">Recursion</span>
-                <span className="ml-auto text-xs bg-gray-200 px-2 py-0.5 rounded">Free</span>
-              </div>
-              
-              <div className="p-4">
-                <p className="text-xs text-gray-600 mb-3">
-                  Select text on any webpage to use recursion's features
-                </p>
-                
-                <div className="bg-green-100 rounded-md p-3 mb-3 flex items-center">
-                  <div className="w-6 h-6 bg-green-500 rounded-md flex items-center justify-center mr-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+            {/* Cursor element */}
+            <div 
+              ref={cursorRef} 
+              className="absolute w-3 h-5 bg-black opacity-0 z-20"
+              style={{
+                transition: 'opacity 0.3s ease-in-out',
+                pointerEvents: 'none'
+              }}
+            />
+            
+            {/* Recursion popup - only shows after selection */}
+            {showRecursionPopup && (
+              <div className="w-72 bg-white shadow-xl rounded-lg border overflow-hidden animate-fade-in">
+                <div className="p-4 bg-white border-b flex items-center space-x-2">
+                  <div className="w-6 h-6 bg-recursion-blue rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold text-xs">R</span>
                   </div>
-                  <span className="text-sm font-medium">Text Selected</span>
+                  <span className="font-medium text-gray-900">Recursion</span>
+                  <span className="ml-auto text-xs bg-gray-200 px-2 py-0.5 rounded">Free</span>
                 </div>
                 
-                <div className="space-y-3">
-                  <div className="flex items-center px-2 py-1.5 rounded-md hover:bg-gray-100">
-                    <input type="radio" checked className="h-4 w-4 text-recursion-blue mr-2" />
-                    <span className="text-sm font-medium">Summarize</span>
+                <div className="p-4">
+                  <p className="text-xs text-gray-600 mb-3">
+                    Select text on any webpage to use recursion's features
+                  </p>
+                  
+                  <div className="bg-green-100 rounded-md p-3 mb-3 flex items-center">
+                    <div className="w-6 h-6 bg-green-500 rounded-md flex items-center justify-center mr-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium">Text Selected</span>
                   </div>
                   
-                  <div className="flex items-center px-2 py-1.5 rounded-md hover:bg-gray-100">
-                    <input type="radio" className="h-4 w-4 text-recursion-blue mr-2" />
-                    <span className="text-sm">Simplify</span>
-                  </div>
-                  
-                  <div className="flex items-center px-2 py-1.5 rounded-md hover:bg-gray-100">
-                    <input type="radio" className="h-4 w-4 text-recursion-blue mr-2" />
-                    <span className="text-sm">Quiz Me</span>
-                  </div>
-                  
-                  <div className="flex items-center px-2 py-1.5 rounded-md hover:bg-gray-100">
-                    <input type="radio" className="h-4 w-4 text-recursion-blue mr-2" />
-                    <span className="text-sm">Chat</span>
+                  <div className="space-y-3">
+                    <div className="flex items-center px-2 py-1.5 rounded-md hover:bg-gray-100">
+                      <input type="radio" checked className="h-4 w-4 text-recursion-blue mr-2" />
+                      <span className="text-sm font-medium">Summarize</span>
+                    </div>
+                    
+                    <div className="flex items-center px-2 py-1.5 rounded-md hover:bg-gray-100">
+                      <input type="radio" className="h-4 w-4 text-recursion-blue mr-2" />
+                      <span className="text-sm">Simplify</span>
+                    </div>
+                    
+                    <div className="flex items-center px-2 py-1.5 rounded-md hover:bg-gray-100">
+                      <input type="radio" className="h-4 w-4 text-recursion-blue mr-2" />
+                      <span className="text-sm">Quiz Me</span>
+                    </div>
+                    
+                    <div className="flex items-center px-2 py-1.5 rounded-md hover:bg-gray-100">
+                      <input type="radio" className="h-4 w-4 text-recursion-blue mr-2" />
+                      <span className="text-sm">Chat</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
