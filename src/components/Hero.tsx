@@ -27,63 +27,139 @@ const Hero = () => {
         </Button>
       </div>
       
-      <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-        <div className="bg-gray-100 p-1 flex items-center space-x-1">
-          <div className="h-3 w-3 bg-red-500 rounded-full"></div>
-          <div className="h-3 w-3 bg-yellow-500 rounded-full"></div>
-          <div className="h-3 w-3 bg-green-500 rounded-full"></div>
-          <div className="text-gray-500 text-xs ml-2">example.com/article</div>
+      {/* Updated browser mockup */}
+      <div className="max-w-5xl mx-auto rounded-xl shadow-lg overflow-hidden bg-gray-100">
+        {/* Browser chrome/toolbar */}
+        <div className="bg-[#2D2D2D] text-gray-300 p-2 flex items-center space-x-2">
+          {/* Traffic lights */}
+          <div className="flex space-x-1.5 mr-2">
+            <div className="h-3 w-3 bg-red-500 rounded-full"></div>
+            <div className="h-3 w-3 bg-yellow-500 rounded-full"></div>
+            <div className="h-3 w-3 bg-green-500 rounded-full"></div>
+          </div>
+          
+          {/* Navigation buttons */}
+          <div className="flex space-x-2 mr-3">
+            <button className="text-gray-400 hover:text-gray-200">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button className="text-gray-400 hover:text-gray-200">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+            <button className="text-gray-400 hover:text-gray-200">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </button>
+          </div>
+          
+          {/* URL bar */}
+          <div className="flex-1 bg-[#444444] rounded px-3 py-1 text-sm text-gray-200 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+            </svg>
+            <span>en.wikipedia.org/wiki/Lorem_ipsum</span>
+          </div>
+          
+          {/* Browser actions */}
+          <div className="flex space-x-2 ml-3">
+            <button className="text-gray-400 hover:text-gray-200">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+              </svg>
+            </button>
+            <button className="text-gray-400 hover:text-gray-200">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </button>
+          </div>
         </div>
         
-        <div className="p-6 relative">
+        {/* Browser content */}
+        <div className="bg-white p-6 relative">
           <div className="flex">
             <div className="flex-1 pr-4">
-              <div className="h-8 bg-gray-200 rounded mb-4 w-3/4"></div>
-              <div className="space-y-2 mb-4">
+              {/* Page title */}
+              <div className="flex items-center mb-4">
+                <div className="w-6 h-6 bg-gray-200 rounded mr-2"></div>
+                <div className="h-5 bg-gray-200 rounded w-1/2"></div>
+              </div>
+              
+              {/* Wikipedia-style header */}
+              <div className="text-sm text-gray-500 mb-3">From Wikipedia, the free encyclopedia</div>
+              
+              {/* Page content */}
+              <div className="space-y-3 mb-4">
                 <div className="h-3 bg-gray-200 rounded w-full"></div>
                 <div className="h-3 bg-gray-200 rounded w-full"></div>
                 <div className="h-3 bg-gray-200 rounded w-11/12"></div>
-                <div className="h-3 bg-gray-200 rounded w-4/5"></div>
               </div>
-              <p className="text-gray-700 text-sm mb-4 text-left">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis eget urna ultricies 
-                magna in tincidunt ultrices, nisi nunc malesuada erat, vel dictum nisl elit ac purus. Praesent 
-                vel ut metus.
-              </p>
-              <div className="space-y-2">
-                <div className="h-3 bg-gray-200 rounded w-full"></div>
-                <div className="h-3 bg-gray-200 rounded w-full"></div>
-                <div className="h-3 bg-gray-200 rounded w-3/4"></div>
+              
+              {/* Lorem ipsum text with highlight */}
+              <div className="mb-4 relative">
+                <div className="bg-blue-100 p-4 rounded mb-3">
+                  <p className="text-gray-700 text-sm mb-2 text-left">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis eget urna ultricies 
+                    magna in tincidunt ultrices, nisi nunc malesuada erat, vel dictum nisl elit ac purus. Praesent 
+                    vel ut metus.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <div className="h-3 bg-gray-200 rounded w-full"></div>
+                  <div className="h-3 bg-gray-200 rounded w-full"></div>
+                  <div className="h-3 bg-gray-200 rounded w-3/4"></div>
+                </div>
               </div>
             </div>
             
-            <div className="w-64 bg-white shadow-lg rounded-lg border overflow-hidden">
-              <div className="p-4 bg-gray-50 border-b flex items-center space-x-2">
-                <div className="w-6 h-6 bg-recursion-blue rounded-md flex items-center justify-center">
+            {/* Recursion popup */}
+            <div className="w-72 bg-white shadow-xl rounded-lg border overflow-hidden">
+              <div className="p-4 bg-white border-b flex items-center space-x-2">
+                <div className="w-6 h-6 bg-recursion-blue rounded-full flex items-center justify-center">
                   <span className="text-white font-bold text-xs">R</span>
                 </div>
-                <span className="font-medium">Recursion</span>
+                <span className="font-medium text-gray-900">Recursion</span>
+                <span className="ml-auto text-xs bg-gray-200 px-2 py-0.5 rounded">Free</span>
               </div>
               
               <div className="p-4">
-                <div className="mb-3">
-                  <div className="flex items-center space-x-2 mb-1">
-                    <input type="radio" className="h-4 w-4 text-recursion-blue" checked />
+                <p className="text-xs text-gray-600 mb-3">
+                  Select text on any webpage to use recursion's features
+                </p>
+                
+                <div className="bg-green-100 rounded-md p-3 mb-3 flex items-center">
+                  <div className="w-6 h-6 bg-green-500 rounded-md flex items-center justify-center mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-sm font-medium">Text Selected</span>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="flex items-center px-2 py-1.5 rounded-md hover:bg-gray-100">
+                    <input type="radio" checked className="h-4 w-4 text-recursion-blue mr-2" />
                     <span className="text-sm font-medium">Summarize</span>
                   </div>
                   
-                  <div className="flex items-center space-x-2 mb-1">
-                    <input type="radio" className="h-4 w-4 text-recursion-blue" />
+                  <div className="flex items-center px-2 py-1.5 rounded-md hover:bg-gray-100">
+                    <input type="radio" className="h-4 w-4 text-recursion-blue mr-2" />
                     <span className="text-sm">Simplify</span>
                   </div>
                   
-                  <div className="flex items-center space-x-2 mb-1">
-                    <input type="radio" className="h-4 w-4 text-recursion-blue" />
+                  <div className="flex items-center px-2 py-1.5 rounded-md hover:bg-gray-100">
+                    <input type="radio" className="h-4 w-4 text-recursion-blue mr-2" />
                     <span className="text-sm">Quiz Me</span>
                   </div>
                   
-                  <div className="flex items-center space-x-2">
-                    <input type="radio" className="h-4 w-4 text-recursion-blue" />
+                  <div className="flex items-center px-2 py-1.5 rounded-md hover:bg-gray-100">
+                    <input type="radio" className="h-4 w-4 text-recursion-blue mr-2" />
                     <span className="text-sm">Chat</span>
                   </div>
                 </div>
